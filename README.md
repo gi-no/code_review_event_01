@@ -30,7 +30,16 @@ git checkout -b hiroyuki.takamura
 ```
 
 #### 2.3. 開発作業をする
-適宜プログラムを作成して、コミットする。なるべくこまめに意味のある単位でコミットしましょう。
+適宜プログラムを作成して、コミットする。なるべくこまめに意味のある単位でコミットしましょう。  
+Gitに慣れていない方は、以下が優しくまとめられていて参考になります
+
+- 概念を知りたい
+  * https://backlog.com/ja/git-tutorial/intro/intro1_1.html
+  * https://backlog.com/ja/git-tutorial/intro/intro1_2.html
+  * https://backlog.com/ja/git-tutorial/intro/intro1_3.html
+  * https://backlog.com/ja/git-tutorial/intro/intro1_4.html
+- 具体的なコミット方法などを知りたい
+  * https://backlog.com/ja/git-tutorial/reference/
 
 ### 3. プルリクエストを作る
 

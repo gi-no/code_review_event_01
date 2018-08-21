@@ -50,3 +50,21 @@ Github上で、プルリクエストを作成する
 
 適宜、プルリクエストのコメントを記載して、Create pull requestボタンを押す  
 ![](https://raw.githubusercontent.com/gi-no/code_review_event_01/master/images/70.png)
+
+
+### 4. 課題内容
+
+#### お題「paizaのスキルチェック並び替えツール」
+#### 条件
+- https://paiza.jp/challenges/ranks/ から情報を取る
+- Rubyを使って作る
+
+
+#### 仕様
+- 以下のすべての並び替え方法を実装してください
+    - 正解率（降順）
+    - 平均回答時間（昇順）
+    - 平均スコア（降順）
+    - 受験者数（降順）
+    - 想定回答時間（昇順）
+- 表示は1行に1問題の情報を出してください

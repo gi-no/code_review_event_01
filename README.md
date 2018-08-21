@@ -65,7 +65,13 @@ Github上で、プルリクエストを作成する
 
 #### お題「paizaのスキルチェック並び替えツール」
 #### 条件
-- https://paiza.jp/challenges/ranks/ から情報を取る
+- 以下から情報を取得する
+  * https://paiza.jp/challenges/ranks/S/info
+  * https://paiza.jp/challenges/ranks/A/info
+  * https://paiza.jp/challenges/ranks/B/info
+  * https://paiza.jp/challenges/ranks/C/info
+  * https://paiza.jp/challenges/ranks/D/info
+
 - Rubyを使って作る
 
 

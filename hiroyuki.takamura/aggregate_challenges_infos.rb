@@ -10,9 +10,7 @@ urls = %w[
 ]
 
 urls.each do |url|
-  html = open(url) do |page|
-    page.read
-  end
+  html = open(url, &:read)
 
   contents = Nokogiri::HTML.parse(html)
 

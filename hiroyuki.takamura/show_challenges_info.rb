@@ -20,6 +20,6 @@ when 'average_score'
 end
 
 challenge_infos.each do |challenge_info|
-  puts challenge_info
+  puts challenge_info.inspect
 end
 

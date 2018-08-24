@@ -21,10 +21,10 @@ urls.each do |url|
       limit_time_for_answer = element.at_css('.problem-box__header__note').inner_text.gsub(/\n/, ' ').gsub(/\s+/, ' ').split[3]
       answer_info_summary = element.at_css('.problem-box__data').inner_text.gsub(/\n/, ' ').gsub(/\s+/, ' ').split
       correct_answer_rate = answer_info_summary[1]
-      avarage_answer_time = answer_info_summary[3]
-      avarage_score       = answer_info_summary[5]
+      average_answer_time = answer_info_summary[3]
+      average_score       = answer_info_summary[5]
 
-      f.puts %W[#{title} #{expect_time_for_answer} #{limit_time_for_answer} #{correct_answer_rate} #{avarage_answer_time} #{avarage_score}].join(',')
+      f.puts %W[#{title} #{expect_time_for_answer} #{limit_time_for_answer} #{correct_answer_rate} #{average_answer_time} #{average_score}].join(',')
     end
   end
 end

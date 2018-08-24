@@ -8,18 +8,19 @@ end
 
 sort_target = ARGV[0].split('=')[1] if ARGV[0]&.include?('=')
 
-case sort_target
-when 'expect_time_for_answer'
-  challenge_infos.sort_by! { |challenge_info| challenge_info.expect_time_for_answer }
-when 'correct_answer_rate'
-  challenge_infos.sort_by! { |challenge_info| challenge_info.correct_answer_rate }.reverse!
-when 'average_answer_time'
-  challenge_infos.sort_by! { |challenge_info| challenge_info.average_answer_time }
-when 'average_score'
-  challenge_infos.sort_by! { |challenge_info| challenge_info.average_score }.reverse!
+challenge_infos.sort_by! do |challenge_info|
+  case sort_target
+  when 'expect_time_for_answer'
+    challenge_info.expect_time_for_answer
+  when 'correct_answer_rate'
+    - challenge_info.correct_answer_rate.tr('％', '').to_i
+  when 'average_answer_time'
+    challenge_info.average_answer_time
+  when 'average_score'
+    - challenge_info.average_score.tr('点', '').to_f
+  end
 end
 
 challenge_infos.each do |challenge_info|
   puts challenge_info.inspect
 end
-

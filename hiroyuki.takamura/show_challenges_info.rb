@@ -1,8 +1,6 @@
 require 'yaml'
 require './challenge_info'
 
-require 'pry'
-
 challenge_infos = []
 File.open('result.yaml') do |f|
   challenge_infos = YAML.load(f)

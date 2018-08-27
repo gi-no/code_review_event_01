@@ -1,3 +1,5 @@
+require 'pry'
+
 # challenge info
 class ChallengeInfo
   attr_accessor(

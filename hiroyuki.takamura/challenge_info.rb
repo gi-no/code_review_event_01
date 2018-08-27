@@ -10,12 +10,33 @@ class ChallengeInfo
   )
 
   def setup_by_problem_box(problem_box_element)
-    self.title = problem_box_element.at_css('.problem-box__header__title').inner_text.strip
-    self.expect_time_for_answer = problem_box_element.at_css('.problem-box__header__note').inner_text.gsub(/\n/, ' ').gsub(/\s+/, ' ').split[1]
-    self.limit_time_for_answer = problem_box_element.at_css('.problem-box__header__note').inner_text.gsub(/\n/, ' ').gsub(/\s+/, ' ').split[3]
-    answer_info_summary = problem_box_element.at_css('.problem-box__data').inner_text.gsub(/\n/, ' ').gsub(/\s+/, ' ').split
-    self.correct_answer_rate = answer_info_summary[1]
-    self.average_answer_time = answer_info_summary[3]
-    self.average_score       = answer_info_summary[5]
+    self.title = prase_header_title(problem_box_element)
+    self.expect_time_for_answer, self.limit_time_for_answer =
+      parse_header_note(problem_box_element)
+    self.correct_answer_rate, self.average_answer_time, self.average_score =
+      parse_problem_box_data(problem_box_element)
+  end
+
+  private
+
+  def prase_header_title(problem_box_element)
+    title_element = problem_box_element.at_css('.problem-box__header__title')
+    raise '.problem-box__header__titleをparseできませんでした。' unless title_element
+    title_element.inner_text.strip
+  end
+
+  def parse_header_note(problem_box_element)
+    header_note_element =
+      problem_box_element.at_css('.problem-box__header__note')
+    raise '.problem-box__header__noteをparseできませんでした。' unless header_note_element
+    tokens = header_note_element.inner_text.gsub(/\n/, ' ').gsub(/\s+/, ' ').split
+    [tokens[1], tokens[3]]
+  end
+
+  def parse_problem_box_data(problem_box_element)
+    box_data_element = problem_box_element.at_css('.problem-box__data')
+    raise '.problem-box__dataをparseできませんでした。' unless box_data_element
+    tokens = box_data_element.inner_text.gsub(/\n/, ' ').gsub(/\s+/, ' ').split
+    [tokens[1], tokens[3], tokens[5]]
   end
 end

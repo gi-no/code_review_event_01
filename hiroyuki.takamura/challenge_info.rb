@@ -29,14 +29,14 @@ class ChallengeInfo
     header_note_element =
       problem_box_element.at_css('.problem-box__header__note')
     raise '.problem-box__header__noteをparseできませんでした。' unless header_note_element
-    tokens = header_note_element.inner_text.gsub(/\n/, ' ').gsub(/\s+/, ' ').split
+    tokens = header_note_element.inner_text.tr("\n", ' ').gsub(/\s+/, ' ').split
     [tokens[1], tokens[3]]
   end
 
   def parse_problem_box_data(problem_box_element)
     box_data_element = problem_box_element.at_css('.problem-box__data')
     raise '.problem-box__dataをparseできませんでした。' unless box_data_element
-    tokens = box_data_element.inner_text.gsub(/\n/, ' ').gsub(/\s+/, ' ').split
+    tokens = box_data_element.inner_text.tr("\n", ' ').gsub(/\s+/, ' ').split
     [tokens[1], tokens[3], tokens[5]]
   end
 end

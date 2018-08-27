@@ -8,7 +8,8 @@ File.open('result.yaml') do |f|
   challenge_infos = YAML.load(f)
 end
 
-sort_target = ARGV[0].split('=')[1] if ARGV[0]&.include?('=')
+sort_option_matcher = ARGV.join(' ').match(/sort_by=(\w+)/)
+sort_target = sort_option_matcher[1] if sort_option_matcher
 
 challenge_infos.sort_by! do |challenge_info|
   case sort_target

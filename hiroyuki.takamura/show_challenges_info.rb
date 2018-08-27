@@ -1,6 +1,8 @@
 require 'yaml'
 require './challenge_info'
 
+require 'pry'
+
 challenge_infos = []
 File.open('result.yaml') do |f|
   challenge_infos = YAML.load(f)
@@ -13,11 +15,11 @@ challenge_infos.sort_by! do |challenge_info|
   when 'expect_time_for_answer'
     challenge_info.expect_time_for_answer
   when 'correct_answer_rate'
-    - challenge_info.correct_answer_rate.tr('％', '').to_i
+    - challenge_info.correct_answer_rate
   when 'average_answer_time'
-    challenge_info.average_answer_time
+    [challenge_info.average_answer_time_min, challenge_info.average_answer_time_sec]
   when 'average_score'
-    - challenge_info.average_score.tr('点', '').to_f
+    - challenge_info.average_score
   end
 end
 

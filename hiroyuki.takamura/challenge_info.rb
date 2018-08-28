@@ -13,7 +13,7 @@ class ChallengeInfo
   )
 
   def setup_by_problem_box(problem_box_element)
-    self.title = prase_header_title(problem_box_element)
+    self.title = parse_header_title(problem_box_element)
     self.expect_time_for_answer, self.limit_time_for_answer =
       parse_header_note(problem_box_element)
     self.correct_answer_rate, self.average_answer_time_min, self.average_answer_time_sec, self.average_score =
@@ -22,7 +22,7 @@ class ChallengeInfo
 
   private
 
-  def prase_header_title(problem_box_element)
+  def parse_header_title(problem_box_element)
     title_element = problem_box_element.at_css('.problem-box__header__title')
     raise '.problem-box__header__titleをparseできませんでした。' unless title_element
     title_element.inner_text.strip

@@ -10,7 +10,7 @@ ruby aggregate_challenges_infos.rb
 以下のコマンドを実行すると、平均解答時間順にpaizaの問題の情報を出力します。
 
 ```
-ruby show_challenges_info.rb sort_by=average_answer_time
+ruby show_challenges_info.rb --sort_by=average_answer_time
 ```
 
 `sort_by=xxxx` に指定できるオプションは、以下のとおりです。

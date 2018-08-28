@@ -1,4 +1,5 @@
 require 'yaml'
+require 'optparse'
 require './challenge_info'
 
 challenge_infos = []
@@ -6,11 +7,10 @@ File.open('result.yaml') do |f|
   challenge_infos = YAML.load(f)
 end
 
-sort_option_matcher = ARGV.join(' ').match(/sort_by=(\w+)/)
-sort_target = sort_option_matcher[1] if sort_option_matcher
+options = ARGV.getopts(nil, 'sort_by:')
 
 challenge_infos.sort_by! do |challenge_info|
-  case sort_target
+  case options['sort_by']
   when 'expect_time_for_answer'
     challenge_info.expect_time_for_answer
   when 'correct_answer_rate'
